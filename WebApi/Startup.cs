@@ -56,6 +56,9 @@ namespace WebApi
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My WebAPI V1");
+
+                // Serve the Swagger UI at the app's root
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseMvc();
