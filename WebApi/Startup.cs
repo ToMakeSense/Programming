@@ -48,6 +48,9 @@ namespace WebApi
 
             app.UseHttpsRedirection();
 
+            // Enable Static File Middleware
+            app.UseStaticFiles();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -59,6 +62,8 @@ namespace WebApi
 
                 // Serve the Swagger UI at the app's root
                 c.RoutePrefix = string.Empty;
+
+                c.InjectStylesheet("/swagger/ui/custom.css");
             });
 
             app.UseMvc();
