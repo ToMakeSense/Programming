@@ -27,9 +27,28 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "My WebAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "Awesome Web API",
+                    Version = "1.0.0",
+                    Description = "A simple example of ASP.NET Core Web API, You can find out more about Swagger at http://swagger.io.",
+                    TermsOfService = "https://smartbear.com/terms-of-use/",
+                    Contact = new Contact
+                    {
+                        Name = "Kevin Xiong",
+                        Email = string.Empty,
+                        Url = "https://github.com/ToMakeSense",
+                    },
+                    License = new License
+                    {
+                        Name = "GNU GPL 3.0",
+                        Url = "https://www.gnu.org/licenses/gpl-3.0.en.html"
+                    }
+                });
             });
         }
 
@@ -58,7 +77,7 @@ namespace WebApi
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My WebAPI V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Awesome Web API V1");
 
                 // Serve the Swagger UI at the app's root
                 c.RoutePrefix = string.Empty;
