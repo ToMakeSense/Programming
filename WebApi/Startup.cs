@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApi
@@ -31,22 +32,22 @@ namespace WebApi
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "Awesome Web API",
                     Version = "1.0.0",
                     Description = "A simple example of ASP.NET Core Web API, You can find out more about Swagger at http://swagger.io.",
-                    TermsOfService = "https://smartbear.com/terms-of-use/",
-                    Contact = new Contact
+                    TermsOfService = new Uri("https://smartbear.com/terms-of-use/"),
+                    Contact = new OpenApiContact
                     {
                         Name = "Kevin Xiong",
                         Email = string.Empty,
-                        Url = "https://github.com/ToMakeSense",
+                        Url = new Uri("https://github.com/ToMakeSense"),
                     },
-                    License = new License
+                    License = new OpenApiLicense
                     {
                         Name = "GNU GPL 3.0",
-                        Url = "https://www.gnu.org/licenses/gpl-3.0.en.html"
+                        Url = new Uri("https://www.gnu.org/licenses/gpl-3.0.en.html"),
                     }
                 });
             });
