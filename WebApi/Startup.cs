@@ -68,16 +68,7 @@ namespace WebApi
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
-            // Enable Static File Middleware
+            // Enable Static File Middleware, place UseStaticFiles before UseRouting
             app.UseStaticFiles();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -93,6 +84,15 @@ namespace WebApi
                 c.RoutePrefix = string.Empty;
 
                 c.InjectStylesheet("/swagger/ui/custom.css");
+            });
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
             });
         }
     }
