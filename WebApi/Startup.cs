@@ -66,8 +66,6 @@ namespace WebApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -82,6 +80,8 @@ namespace WebApi
 
                 c.InjectStylesheet("/swagger/ui/custom.css");
             });
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 
