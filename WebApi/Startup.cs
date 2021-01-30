@@ -68,9 +68,6 @@ namespace WebApi
 
             app.UseHttpsRedirection();
 
-            // Enable Static File Middleware, place UseStaticFiles before UseRouting
-            app.UseStaticFiles();
-
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
