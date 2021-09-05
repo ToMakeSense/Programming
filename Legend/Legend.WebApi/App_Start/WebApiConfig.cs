@@ -11,7 +11,7 @@ namespace Legend.WebApi
         {
             // Web API 配置和服务
 
-            // Web API 路由
+            // Web API 启用属性路由
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
